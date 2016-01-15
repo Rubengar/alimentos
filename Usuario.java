@@ -10,6 +10,13 @@ public class Usuario
     private float grasasIngeridas;
     //calorias totales ingeridas por el usuario
     private float caloriasIngeridas;
+    //Guarda el nombre del alimento mas calorico
+	private String alimentoMasCalorico;
+	//Guarda las calorias del alimento mas calorico
+	private float caloriasDelAlimentoMasCalorico;
+   
+    
+    
 
     /**
     *Constructor de la clase usuario
@@ -21,6 +28,8 @@ public class Usuario
         carbohidratosIngeridos = 0;
         grasasIngeridas = 0;
         caloriasIngeridas = 0;
+        caloriasDelAlimentoMasCalorico = 0;
+        alimentoMasCalorico = null;
     }
     
     /**
@@ -31,9 +40,26 @@ public class Usuario
         proteinasIngeridas = proteinasIngeridas + (alimentoQueCome.getProteinas() / 100 * gramosDelAlimento);
         carbohidratosIngeridos = carbohidratosIngeridos + (alimentoQueCome.getCarbohidratos() / 100 * gramosDelAlimento);
         grasasIngeridas = grasasIngeridas + (alimentoQueCome.getGrasas() / 100 * gramosDelAlimento);
-        caloriasIngeridas = caloriasIngeridas + (alimentoQueCome.getCalorias() / 100 * gramosDelAlimento);
-    }
-    
+        caloriasIngeridas = caloriasIngeridas + (alimentoQueCome.getCaloriasAlimento() / 100 * gramosDelAlimento);
+        if (alimentoQueCome.getCaloriasAlimento() >= caloriasDelAlimentoMasCalorico) {
+			caloriasDelAlimentoMasCalorico = alimentoQueCome.getCaloriasAlimento(); 	
+				alimentoMasCalorico = alimentoQueCome.getNombreAlimento();
+		}
+     }
+     /**
+	 * Muestra por pantalla el alimento más calorico ingerido hasta el momento y 
+	 * sus calorias
+	 */
+	public void alimentoMasCaloricoConsumido()
+	{
+		if (alimentoMasCalorico == null) {
+			System.out.println("No has consumido ningun alimento");
+		}
+		else {
+			System.out.println("El alimento mas calorico es: " + alimentoMasCalorico +
+				   "(" + caloriasDelAlimentoMasCalorico + ")");
+		  }
+	}  
     /**
      * Metodo que muestra las calorias
      */
@@ -93,4 +119,5 @@ public class Usuario
                     System.out.println("Han consumido las mismas calorias");
                 }
     }
+
 }

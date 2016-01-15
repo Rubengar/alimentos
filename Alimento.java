@@ -52,11 +52,17 @@ public class Alimento
     {
         return carbohidratos;
     }
-    
+    /**
+     * Metodo que nos devuelve el nombre del alimento
+     */
+    public String getNombreAlimento()
+    {
+        return nombre;
+    }
     /**
      * Nos devuelve las calorías que tiene el alimento
      */
-    public float getCalorias() 
+    public float getCaloriasAlimento() 
     {
         return calorias;
     }
