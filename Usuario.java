@@ -18,7 +18,8 @@ public class Usuario
     private float caloriasDelAlimentoMasCalorico;
     //Almacena una lista de alimentos
     private ArrayList<Alimento> alimentos;
-
+    
+    private Alimento nombreAl;
 
     /**
     *Constructor de la clase usuario
@@ -139,5 +140,17 @@ public class Usuario
                     System.out.println("Han consumido las mismas calorias");
                 }
     }
+    /**
+     * Metodo que permite saber si el alimento se ha tomado mas de una vez
+     */
+    public void vecesComido(String nombreAlimento)
+    {
+         for( String nombreAlimento :alimentos)
+         {
+             
+         
+         } 
+    }
+    
 
 }
